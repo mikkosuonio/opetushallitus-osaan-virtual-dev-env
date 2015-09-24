@@ -1,6 +1,6 @@
 # osaan.fi virtualisoidun kehitysympäristön pystytys
 
-Tämä projekti pystyttää virtuaalisen kehitysympäristön [osaan.fi](https://github.com/Opetushallitus/osaan) projektille.
+Tämä projekti pystyttää virtuaalisen kehitysympäristön [osaan.fi](https://github.com/Opetushallitus/osaan.fi) projektille.
 
 ## Tarvittavat ohjelmistot (kehityskoneessa)
 
@@ -68,7 +68,7 @@ eval "$(ssh-agent -s)"
 dev-scripts/deploy.sh
 ```
 
-## Virtuaalikoneiden tuhoaminen
+## Virtuaalikoneiden tuhoaminen (kehityskoneessa)
 
 ```
 cd <tämä projekti>
