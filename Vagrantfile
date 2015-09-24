@@ -57,4 +57,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # View the documentation for the provider you're using for more
   # information on available options.
 
+  # Use the same private network as osaan.fi project
+  config.vm.network "private_network", ip: "192.168.50.79"
 end
