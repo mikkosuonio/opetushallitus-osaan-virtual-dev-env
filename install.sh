@@ -13,8 +13,6 @@ apt-get install -y git
 apt-get install -y nodejs
 ln -s /usr/bin/nodejs /usr/local/bin/node
 apt-get install -y npm
-apt-get install -y virtualbox
-apt-get install -y vagrant
 apt-get install -y software-properties-common
 apt-get install -y ansible
 
