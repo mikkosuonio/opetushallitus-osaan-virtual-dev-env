@@ -2,15 +2,47 @@
 
 Tämä projekti pystyttää virtuaalisen kehitysympäristön [osaan.fi](https://github.com/Opetushallitus/osaan) projektille.
 
-## Virtuaalikoneen luonti
+## Tarvittavat ohjelmistot (kehityskoneessa)
+
+Asenna seuraavat ohjelmat kehityskoneellesi
+- git
+- [Vagrant](https://www.vagrantup.com/)
+- [VirtualBox](https://www.virtualbox.org/)
+
+### Asennus Ubuntuun
+
+Seuraavat komennot asentavat tarvittavat ohjelmistot Ubuntuun
+```
+sudo add-apt-repository "deb http://fi.archive.ubuntu.com/ubuntu/ trusty multiverse"
+sudo apt-get update
+sudo apt-get install -y git
+sudo apt-get install -y virtualbox
+sudo apt-get install -y vagrant
+```
+
+## Lähdekoodin haku (kehityskoneessa)
 
 ```
+git clone https://github.com/Opetushallitus/osaan.fi.git
+```
+
+## Virtuaalikoneiden luonti (kehityskoneessa)
+
+```
+cd osaan.fi/vagrant
+vagrant up osaan-db
+vagrant up osaan-app
+```
+
+```
+cd <tämä projekti>
 vagrant up --provider virtualbox
 ```
 
-## Siirtyminen virtuaalikoneeseen
+## Siirtyminen virtuaalikoneeseen (kehityskoneessa)
 
 ```
+cd <tämä projekti>
 vagrant ssh
 ```
 
@@ -24,29 +56,27 @@ git clone https://github.com/Opetushallitus/clojure-utils.git
 ## Kääntäminen ja paketointi (virtuaalikoneessa)
 
 ```
-cd osaan.fi/app
-./build.sh
+cd osaan.fi
+dev-scripts/build.sh
 ```
 
-```
-cd osaan.fi/db
-./build.sh
-```
-
-## Asennus paikalliseen kehitysympäristöön
-
-Tätä ei voi nyt ajaa, koska virtuaalikoneita ei voi ajaa sisäkkäin.
-
-TODO: korjaa
+## Asennus paikalliseen kehitysympäristöön (virtuaalikoneessa)
 
 ```
-dev-scripts/init-db.sh
-dev-scripts/init-app.sh
+cd osaan.fi
+eval "$(ssh-agent -s)"
 dev-scripts/deploy.sh
 ```
 
-## Virtuaalikoneen tuhoaminen
+## Virtuaalikoneiden tuhoaminen
 
 ```
+cd <tämä projekti>
 vagrant destroy
+```
+
+```
+cd osaan.fi/vagrant
+vagrant destroy osaan-db
+vagrant destroy osaan-app
 ```
