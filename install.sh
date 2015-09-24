@@ -5,7 +5,8 @@ set -eu
 set -x
 
 add-apt-repository "deb http://fi.archive.ubuntu.com/ubuntu/ trusty multiverse"
-apt-add-repository ppa:ansible/ansible
+add-apt-repository ppa:ansible/ansible
+add-apt-repository ppa:webupd8team/java
 apt-get update
 
 apt-get install -y git
@@ -16,7 +17,9 @@ apt-get install -y virtualbox
 apt-get install -y vagrant
 apt-get install -y software-properties-common
 apt-get install -y ansible
-apt-get install -y openjdk-7-jdk
+
+echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+apt-get install -y oracle-java8-installer
 
 npm install -g bower grunt-cli
 
